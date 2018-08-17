@@ -1,11 +1,14 @@
 import React from 'react';
 
-const Navigation = () => {
+const Navigation = (props) => {
     return (
         <nav className='navigation'>
-            <a href="#"  className='navigation-signOut'><p>Sign Out</p></a>
+            <p 
+                onClick={() => props.onRouteChange('signin')} 
+                className='navigation-signOut'>
+                Sign Out</p>
         </nav>
-    );
+    )
 }
 
 export default Navigation;

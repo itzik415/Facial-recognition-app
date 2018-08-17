@@ -123,3 +123,70 @@ html {
   cursor: pointer;
 }
 
+
+/*--------SignIn--------*/
+
+.SignIn__container {
+  display: flex;
+  justify-content: center;
+  margin: 100px;
+}
+
+.SignIn__container-form {
+  display: flex;
+  flex-direction: column;
+  align-items:  center;
+  padding: 10px;
+  width: 450px;
+  box-shadow: 1px 5px 10px black;
+}
+
+.SignIn__container-form-title {
+  margin: 10px;
+  color: rgb(106, 106, 211);
+}
+
+.SignIn__container-form-input {
+  width: 75%;
+  margin: 10px;
+  height: 30px;
+  font-size: 17px;
+  outline: none;
+  border-radius: 3px;
+  padding: 10px;
+  box-shadow: 1px 3px 5px grey;
+  border: 1px solid grey;
+}
+
+.SignIn__container-form-signIn {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.SignIn__container-form-signIn-button-login,
+.SignIn__container-form-signIn-button-register {
+  width: 25%;
+  height: 30px;
+  border-radius: 3px;
+  font-size: 15px;
+  color: grey;
+  border: 1px solid grey;
+  margin: 10px 1px;
+  transition: .3s;
+}
+
+.SignIn__container-form-signIn-button-login:hover,
+.SignIn__container-form-signIn-button-register:hover {
+  cursor: pointer;
+  color: black;
+}
+
+.SignIn__container-form-signIn-button-register {
+  text-decoration: none;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
