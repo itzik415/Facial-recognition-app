@@ -86,7 +86,7 @@ html {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 20px 0;
+  margin: 50px 0;
 }
 
 .Rank__container-text {
@@ -103,7 +103,7 @@ html {
 .faceRecognition__container {
   display: flex;
   justify-content: center;
-  margin: 20px;
+  align-items: center;
   position: relative;
 }
 
@@ -112,7 +112,6 @@ html {
 }
 
 .faceRecognition__container-image {
-  /* width: auto; */
   height: 500px;
   
 }
@@ -129,7 +128,8 @@ html {
 .SignIn__container {
   display: flex;
   justify-content: center;
-  margin: 100px;
+  align-items: center;
+  height: 70vh;
 }
 
 .SignIn__container-form {
