@@ -1,5 +1,4 @@
 import React, {Component } from 'react';
-// import { loading } from 'os';
 
 class Register extends Component {
     constructor(props) {
