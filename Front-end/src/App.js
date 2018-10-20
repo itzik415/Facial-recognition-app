@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Particles from 'react-particles-js';
-import Clarifai from 'clarifai';
 import Navigation from './components/Navigation/Navigation';
 import FaceRecognition from './components/FaceRecognition/FaceRecognition';
 import SignIn from './components/Signin/Signin';
@@ -20,10 +19,6 @@ const paricalesOptions = {
     }
   }
 }
-
-const app = new Clarifai.App({
-  apiKey: "fe893531b9a145dc9634cbe98c1e4407"
- });
 
 const initialState = {
   input: '',
@@ -82,26 +77,30 @@ class App extends Component {
 
   onButtonSubmit = () => {
     this.setState({imageUrl: this.state.input});
-    app.models
-      .predict(
-        Clarifai.FACE_DETECT_MODEL, 
-        this.state.input)
-        .then(response => {
-          if(response) {
-            fetch('http://localhost:3001/image', {
-              method: 'put',
-              headers: {'Content-Type': 'application/json'},
-              body: JSON.stringify({
-                  id: this.state.user.id
-              })
-            })
-              .then(response => response.json())
-              .then(count => {this.setState(Object.assign(this.state.user, { entries: count }))})
-              .catch(console.log)
-          }
-          this.displayFaceBox(this.calculateFaceLocation(response))
+    fetch('http://localhost:3001/imageurl', {
+      method: 'post',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({
+        input: this.state.input
+      })
+    })
+    .then(response => response.json())
+    .then(response => {
+      if(response) {
+        fetch('http://localhost:3001/image', {
+          method: 'put',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify({
+              id: this.state.user.id
+          })
         })
-        .catch(err => console.log(err));
+          .then(response => response.json())
+          .then(count => {this.setState(Object.assign(this.state.user, { entries: count }))})
+          .catch(console.log)
+      }
+      this.displayFaceBox(this.calculateFaceLocation(response))
+    })
+    .catch(err => console.log(err));
   }
 
   onRouteChange = (route) => {
